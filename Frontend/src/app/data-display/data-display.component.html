@@ -1,0 +1,30 @@
+<h2 style="text-align: center;">My Gadgets</h2>
+
+<div>
+  <input type="text" [(ngModel)]="newDeviceName" placeholder="Device Name">
+  <input type="text" [(ngModel)]="newDeviceId" placeholder="Device Id">
+  <button class="add-button" (click)="addDevice()">Add Device</button>
+</div>
+
+<table class="data-table">
+  <thead>
+    <tr>
+      <th>Device Name</th>
+      <th>Device ID</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{ item.deviceName }}</td>
+      <td>{{ item.deviceId }}</td>
+      <td [ngClass]="{ active: item.isActive, inactive: !item.isActive }">
+        {{ item.isActive ? 'Active' : 'Inactive' }}
+      </td>
+      <td class="action-column button">
+        <button (click)="deleteDevice(item.deviceId)">Remove</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
