@@ -16,7 +16,6 @@ public class Device {
 	}
 	
 	public Device(long deviceId,String deviceName, boolean isActive) {
-		super();
 		this.deviceId = deviceId;
 		this.deviceName = deviceName;
 		this.isActive = isActive;
